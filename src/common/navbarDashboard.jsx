@@ -352,7 +352,7 @@ const NavbarDashboard = () => {
             </div>
           </div>
         </div>
-        <Link to="login">
+        <Link to="/login">
           <div className="absolute w-[176px] h-[40px] left-[12px] top-[732px] button-cancel flex flex-row items-center p-3 gap-3 ">
             <div>
               <svg

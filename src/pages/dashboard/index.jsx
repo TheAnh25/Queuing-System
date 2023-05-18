@@ -2,6 +2,7 @@ import React from "react";
 import avatarTest from "../../assets/images/avatarTest.jpg";
 import NavbarDashboard from "../../common/navbarDashboard";
 import DatePicker from "../../common/datePicker";
+import NotiUser from "../../common/notiUser";
 
 const DashBoard = () => {
   return (
@@ -247,10 +248,12 @@ const DashBoard = () => {
             </div>
           </div>
           {/* Bảng thống kê */}
-          <div className="w-[791px] h-[484px] flex flex-col rounded-xl bg-red-400 shadow-lg mt-4 ">
+          {/* bg-red-400 */}
+          <div className="w-[791px] h-[484px] flex flex-col rounded-xl bg-[#FFFFFF] shadow-lg mt-4 ">
             <div className="mx-6 mt-6">
               {/* Thông tin thống kê */}
-              <div className="bg-yellow-300 flex justify-between">
+              {/* bg-yellow-300 */}
+              <div className=" flex justify-between">
                 <div className="flex flex-col gap-1">
                   <span className="font-bold text-[20px] w-[240px] h-[30px] text-[#282739]">
                     Bảng thống kê theo ngày
@@ -263,39 +266,53 @@ const DashBoard = () => {
                   <p className="w-[80px] h-6 text-base font-semibold text-[#282739] flex-none order-0 flex-grow-0">
                     Xem theo
                   </p>
-                  <div className="flex justify-between items-center py-[10px] px-3 gap-6 w-[106px] h-[42px] bg-white border-[1.5px] border-solid border-[#D4D4D7] rounded-lg flex-none order-1 flex-grow-0">
-                    <p className="w-[38px] h-6 text-base font-normal text-[#7E7D88] flex-none order-0 flex-grow-0">
-                      Ngày
-                    </p>
-                    <i className="fa-solid fa-caret-down text-[#FF7506]"></i>
+                  <div className="relative group">
+                    <div className="flex justify-between items-center py-[10px] px-3 gap-6 w-[106px] h-[42px] bg-white border-[1.5px] border-solid border-[#D4D4D7] rounded-lg flex-none order-1 flex-grow-0">
+                      <p className="w-[38px] h-6 text-base cursor-pointer font-normal text-[#7E7D88] flex-none order-0 flex-grow-0">
+                        Ngày
+                      </p>
+                      <i className="fa-solid fa-caret-down text-[#FF7506]"></i>
+                    </div>
+
+                    <div className="opacity-0 z-10 absolute bg-white  w-[106px] shadow-lg flex flex-col group-hover:opacity-100 group-hover:visible group-hover:mt-0">
+                      <div className=" w-full h-[1px] bg-[#F6F6F6] rounded-t-[10px]"></div>
+
+                      <div className="flex flex-col items-center w-full   rounded-b-[10px]">
+                        {/* Thông báo 1 */}
+                        <div className="w-full flex-none order-0 flex-grow-0 ">
+                          <div className="px-3 pt-2 h-[44px] flex text-base font-bold text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
+                            Ngày
+                          </div>
+                        </div>
+
+                        {/* Thông báo 2 */}
+                        <div className="w-full flex-none order-0 flex-grow-0 ">
+                          <div className="px-3 pt-2 h-[44px] flex text-base font-bold text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
+                            Tuần
+                          </div>
+                        </div>
+
+                        {/* Thông báo 3 */}
+                        <div className="w-full flex-none order-0 flex-grow-0 ">
+                          <div className="px-3 pt-2 h-[44px] flex text-base font-bold text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
+                            Tháng
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               {/* Biểu đồ */}
-              <div className="h-[373px] bg-sky-300 ">aaaaaa</div>
+              {/* bg-sky-300 */}
+              <div className="h-[373px]  ">Ngày</div>
             </div>
           </div>
         </div>
         {/* Tổng quan  */}
         <div className="absolute w-[400px] h-[88px] left-[1039px] flex px-6 flex-col">
           <div className="absolute right-[260px] left-[230px] top-[28px] flex gap-6 items-center justify-center">
-            <div className="w-8 h-8  shrink-0 bg-orange-200 rounded-full flex items-center justify-center">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M16.1168 12.0743L15.2834 10.691C15.1084 10.3827 14.9501 9.79935 14.9501 9.45768V7.34935C14.9501 5.39102 13.8001 3.69935 12.1418 2.90768C11.7084 2.14102 10.9084 1.66602 9.99178 1.66602C9.08345 1.66602 8.26678 2.15768 7.83345 2.93268C6.20845 3.74102 5.08345 5.41602 5.08345 7.34935V9.45768C5.08345 9.79935 4.92511 10.3827 4.75012 10.6827L3.90845 12.0743C3.57512 12.6327 3.50012 13.2493 3.70845 13.816C3.90845 14.3743 4.38345 14.8077 5.00012 15.016C6.61678 15.566 8.31678 15.8327 10.0168 15.8327C11.7168 15.8327 13.4168 15.566 15.0334 15.0244C15.6168 14.8327 16.0668 14.391 16.2834 13.816C16.5001 13.241 16.4418 12.6077 16.1168 12.0743Z"
-                  fill="#FFAC6A"
-                />
-                <path
-                  d="M12.3582 16.6743C12.0082 17.641 11.0832 18.3327 9.9999 18.3327C9.34157 18.3327 8.69157 18.066 8.23324 17.591C7.96657 17.341 7.76657 17.0077 7.6499 16.666C7.75824 16.6827 7.86657 16.691 7.98324 16.7077C8.1749 16.7327 8.3749 16.7577 8.5749 16.7743C9.0499 16.816 9.53324 16.841 10.0166 16.841C10.4916 16.841 10.9666 16.816 11.4332 16.7743C11.6082 16.7577 11.7832 16.7493 11.9499 16.7243C12.0832 16.7077 12.2166 16.691 12.3582 16.6743Z"
-                  fill="#FFAC6A"
-                />
-              </svg>
-            </div>
+            <NotiUser />
             <div className="flex gap-2 w-[172px] h-[42px]">
               <div className="w-10 h-10 shrink-0">
                 <img
@@ -320,7 +337,7 @@ const DashBoard = () => {
             <span>Tổng quan</span>
           </div>
           {/* Nội dung Thiết bị  */}
-          <div className="w-[353px] h-[383px] rounded-xl shadow-md mb-3">
+          <div className="w-[353px] h-[383px] rounded-xl bg-[#FFFFFF] shadow-md mb-3">
             <div className="mx-4 my-3 flex gap-9 ">
               <div className="flex gap-3">
                 <div className="w-[60px] h-[60px] rounded-full border-t-[4px] border-t-solid border-t-[#EAEAEC] border-l-[4px] border-l-solid border-l-[#FF7506] border-r-[4px] border-r-solid border-r-[#FF7506] border-b-[4px] border-b-solid border-b-[#FF7506]">
@@ -403,7 +420,7 @@ const DashBoard = () => {
             </div>
           </div>
           {/* Nội dung Dịch vụ  */}
-          <div className="w-[353px] h-[383px] rounded-xl shadow-md mb-3">
+          <div className="w-[353px] h-[383px] rounded-xl bg-[#FFFFFF] shadow-md mb-3">
             <div className="mx-4 my-3 flex gap-9 ">
               <div className="flex gap-3">
                 <div className="w-[60px] h-[60px] rounded-full border-t-[4px] border-t-solid border-t-[#EAEAEC] border-l-[4px] border-l-solid border-l-[#4277FF] border-r-[4px] border-r-solid border-r-[#4277FF] border-b-[4px] border-b-solid border-b-[#4277FF]">
@@ -515,7 +532,7 @@ const DashBoard = () => {
             </div>
           </div>
           {/* Nội dung Cấp số */}
-          <div className="w-[353px] h-[383px] rounded-xl shadow-md mb-3">
+          <div className="w-[353px] h-[383px] rounded-xl bg-[#FFFFFF] shadow-md mb-3">
             <div className="mx-4 my-3 flex gap-9 ">
               <div className="flex gap-3">
                 <div className="w-[60px] h-[60px] rounded-full border-t-[4px] border-t-solid border-t-[#35C75A] border-l-[4px] border-l-solid border-l-[#EAEAEC] border-r-[4px] border-r-solid border-r-[#35C75A] border-b-[4px] border-b-solid border-b-[#35C75A]">

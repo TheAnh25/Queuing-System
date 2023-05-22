@@ -7,17 +7,20 @@ import NotiUser from "../../common/notiUser";
 const Home = () => {
   return (
     <>
-      <div className="w-[1440px] h-[810px] relative bg-[#F7F7F7] rounded-2xl">
+      <div className="w-[1440px] flex h-[810px] mx-auto bg-[#F7F7F7] rounded-2xl">
         {/* Navbar Dashboard */}
         <NavbarDashboard />
         {/* Info user */}
-        <div className="bg-[#B1B1B1]/[.06] absolute left-[200px] w-[1240px] h-[810px] rounded-r-2xl">
+        <div className="bg-[#B1B1B1]/[.06] w-[1240px] h-[810px] rounded-r-2xl  pl-6">
           {/* Top Nav User */}
-          <div className="absolute w-[1240px] h-[88px] flex">
-            <p className="w-[170px] h-[30px] mt-[29px] ml-[24px] font-bold text-[20px] text-[#FF9138] flex-none order-1 flex-grow-0">
-              Thông tin cá nhân
-            </p>
-            <div className="absolute right-[260px] left-[948px] top-[28px] flex gap-6 items-center justify-center">
+          <div className=" w-[1240px] h-[88px] flex justify-between items-center">
+            <div>
+              <p className="w-[170px] h-[30px]  font-bold text-[20px] text-[#FF9138] ">
+                Thông tin cá nhân
+              </p>
+            </div>
+
+            <div className=" flex gap-6 items-center justify-center pr-16">
               <NotiUser />
               <div className="flex gap-2 w-[172px] h-[42px]">
                 <div className="w-10 h-10 shrink-0">
@@ -41,18 +44,18 @@ const Home = () => {
             </div>
           </div>
           {/* show info user */}
-          <div className="absolute w-[1112px] h-[397px] left-6 top-[168px] bg-white rounded-xl flex gap-6">
+          <div className=" w-[1112px] h-[397px] mt-[80px] bg-white rounded-xl flex gap-6">
             {/* avatar & username  */}
             <div className="w-[248px] h-[303px] ml-6 mt-10 ">
               <div>
-                <div className="absolute w-[248px] h-[248px] ">
+                <div className="relative w-[248px] h-[248px] ">
                   <img
                     className="rounded-full h-[248px] object-cover"
                     src={avatarTest}
                     alt=""
                   />
                 </div>
-                <div className="absolute flex items-center justify-center w-[45px] h-[45px] left-[195px] top-[246px] bg-[#FF7506] border-[2px] border-solid border-[#FFFFFF] rounded-full">
+                <div className="absolute flex items-center justify-center w-[45px] h-[45px] top-[400px] left-[640px] bg-[#FF7506] border-[2px] border-solid border-[#FFFFFF] rounded-full">
                   <svg
                     width="30"
                     height="30"
@@ -68,7 +71,7 @@ const Home = () => {
                   </svg>
                 </div>
               </div>
-              <div className="absolute w-[186px] mt-[267px] ml-[31px] h-9 font-bold text-base flex items-center justify-center text-[#282739]">
+              <div className=" w-[186px] ml-[31px] h-9 font-bold text-base flex items-center justify-center text-[#282739]">
                 <span>Lê Quỳnh Ái Vân</span>
               </div>
             </div>
@@ -81,7 +84,7 @@ const Home = () => {
                     Tên người dùng
                   </span>
                   <div className="flex flex-row items-center py-3 px-4 w-[384px] h-11 bg-[#EAEAEC] rounded-md">
-                    <p className="text-base font-normal text-[#535261 opacity-50 flex-none order-none flex-grow-0">
+                    <p className="text-base font-normal text-[#535261] opacity-50 flex-none order-none flex-grow-0">
                       Lê Quỳnh Ái Vân
                     </p>
                   </div>
@@ -91,7 +94,7 @@ const Home = () => {
                     Số điện thoại
                   </span>
                   <div className="flex flex-row items-center py-3 px-4 w-[384px] h-11 bg-[#EAEAEC] rounded-md">
-                    <p className="text-base font-normal text-[#535261 opacity-50 flex-none order-none flex-grow-0">
+                    <p className="text-base font-normal text-[#535261] opacity-50 flex-none order-none flex-grow-0">
                       0767375921
                     </p>
                   </div>
@@ -101,7 +104,7 @@ const Home = () => {
                     Email:
                   </span>
                   <div className="flex flex-row items-center py-3 px-4 w-[384px] h-11 bg-[#EAEAEC] rounded-md">
-                    <p className="text-base font-normal text-[#535261 opacity-50 flex-none order-none flex-grow-0">
+                    <p className="text-base font-normal text-[#535261] opacity-50 flex-none order-none flex-grow-0">
                       adminSSO1@domain.com
                     </p>
                   </div>
@@ -114,7 +117,7 @@ const Home = () => {
                     Tên đăng nhập
                   </span>
                   <div className="flex flex-row items-center py-3 px-4 w-[384px] h-11 bg-[#EAEAEC] rounded-md">
-                    <p className="text-base font-normal text-[#535261 opacity-50 flex-none order-none flex-grow-0">
+                    <p className="text-base font-normal text-[#535261] opacity-50 flex-none order-none flex-grow-0">
                       lequynhaivan01
                     </p>
                   </div>
@@ -124,7 +127,7 @@ const Home = () => {
                     Mật khẩu
                   </span>
                   <div className="flex flex-row items-center py-3 px-4 w-[384px] h-11 bg-[#EAEAEC] rounded-md">
-                    <p className="text-base font-normal text-[#535261 opacity-50 flex-none order-none flex-grow-0">
+                    <p className="text-base font-normal text-[#535261] opacity-50 flex-none order-none flex-grow-0">
                       311940211
                     </p>
                   </div>
@@ -134,7 +137,7 @@ const Home = () => {
                     Vai trò:
                   </span>
                   <div className="flex flex-row items-center py-3 px-4 w-[384px] h-11 bg-[#EAEAEC] rounded-md">
-                    <p className="text-base font-normal text-[#535261 opacity-50 flex-none order-none flex-grow-0">
+                    <p className="text-base font-normal text-[#535261] opacity-50 flex-none order-none flex-grow-0">
                       Kế toán
                     </p>
                   </div>

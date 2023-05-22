@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css?family=Manjari:400,700&display=swap");
+.calendar {
+  height: 304px;
+
+  box-shadow: 1px 2px 3px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 6px 6px 0 0;
+  // background-color: #1abc9c;
+  // color: #fff;
+  color: #ff7506;
+}
+
+.header button {
+  color: #ff7506;
+}
+
+.nav {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #fff;
+  border-radius: 99px;
+  outline: 0;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.datetime {
+  margin: 0 auto;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.week-container,
+.day-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.week-cell {
+  flex: 0 0 calc(100% / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  color: #ff7506;
+}
+.day-cell {
+  flex: 0 0 calc(100% / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  cursor: pointer;
+}
+
+.day-cell--faded {
+  opacity: 0.4;
+}
+
+.day-cell--today {
+  border-radius: 99px;
+  background-color: #ff7506;
+  color: #fff;
+}
+
+.day-cell--in-today {
+  border-radius: 99px;
+  background-color: #ff7506;
+  color: #fff;
+}

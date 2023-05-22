@@ -3,23 +3,52 @@ import avatarTest from "../../assets/images/avatarTest.jpg";
 import NavbarDashboard from "../../common/navbarDashboard";
 import DatePicker from "../../common/datePicker";
 import NotiUser from "../../common/notiUser";
+import RainbowDatePicker from "../../common/rainbowDatePicker";
+import CalendarFromTo from "../../common/calendarFromTo";
+import Calendar from "../../common/calendar";
+import Recharts from "../../common/recharts";
 
 const DashBoard = () => {
   return (
     <>
-      <div className="w-[1440px] h-[810px] relative bg-[#F7F7F7] rounded-2xl">
+      <div className="mx-auto flex h-[810px] bg-[#F7F7F7] rounded-2xl">
         {/* Navbar  */}
         <NavbarDashboard />
         {/* Biểu đồ cấp  số*/}
-        <div className="bg-[#B1B1B1]/[.06] absolute left-[200px] w-[840px] h-[810px] rounded-r-2xl px-[24px]">
+        <div className="bg-[#B1B1B1]/[.06]  w-[840px] h-[810px] rounded-r-2xl px-[24px]">
           {/* Top Nav User */}
-          <div className="absolute w-[840px] h-[88px]">
-            <p className="w-[170px] h-[30px] mt-[29px]  font-bold text-[20px] text-[#FF9138] flex-none order-1 flex-grow-0">
-              Dashboard
-            </p>
+          <div className=" w-[1240px] h-[88px] flex justify-between items-center">
+            <div>
+              <p className="w-[170px] h-[30px]  font-bold text-[20px] text-[#FF9138] ">
+                Dashboard
+              </p>
+            </div>
+
+            <div className=" flex gap-6 items-center justify-center pr-16">
+              <NotiUser />
+              <div className="flex gap-2 w-[172px] h-[42px]">
+                <div className="w-10 h-10 shrink-0">
+                  <img
+                    className="w-10 h-10 rounded-full object-cover"
+                    src={avatarTest}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <div className="flex flex-col w-[172px]">
+                    <p className="font-normal text-[12px] text-[#7E7D88] max-w-max w-full">
+                      Xin chào
+                    </p>
+                    <p className="font-bold text-base text-[#535261] max-w-max w-full">
+                      Lê Quỳnh Ái Vân
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           {/* show biểu đồ */}
-          <div className="w-[170px] h-[36px] font-bold text-[24px] text-[#FF7506] mt-[104px] mb-5">
+          <div className="w-[170px] h-[36px] font-bold text-[24px] text-[#FF7506]  mb-5">
             <span>Biểu đồ cấp số</span>
           </div>
           <div className="w-[790px] h-[128px] rounded-xl  flex items-center ">
@@ -253,7 +282,7 @@ const DashBoard = () => {
             <div className="mx-6 mt-6">
               {/* Thông tin thống kê */}
               {/* bg-yellow-300 */}
-              <div className=" flex justify-between">
+              <div className=" flex justify-between mb-5">
                 <div className="flex flex-col gap-1">
                   <span className="font-bold text-[20px] w-[240px] h-[30px] text-[#282739]">
                     Bảng thống kê theo ngày
@@ -263,38 +292,40 @@ const DashBoard = () => {
                   </span>
                 </div>
                 <div className="flex justify-center items-center gap-2">
-                  <p className="w-[80px] h-6 text-base font-semibold text-[#282739] flex-none order-0 flex-grow-0">
-                    Xem theo
-                  </p>
+                  <div>
+                    <p className="w-[80px] h-6 text-base font-semibold text-[#282739] ">
+                      Xem theo
+                    </p>
+                  </div>
                   <div className="relative group">
-                    <div className="flex justify-between items-center py-[10px] px-3 gap-6 w-[106px] h-[42px] bg-white border-[1.5px] border-solid border-[#D4D4D7] rounded-lg flex-none order-1 flex-grow-0">
-                      <p className="w-[38px] h-6 text-base cursor-pointer font-normal text-[#7E7D88] flex-none order-0 flex-grow-0">
+                    <div className="flex justify-between items-center py-[10px] px-3 gap-6 w-[106px] h-[42px] bg-white border-[1.5px] border-solid border-[#D4D4D7] rounded-lg ">
+                      <li className=" text-base cursor-pointer font-normal text-[#7E7D88] list-none">
                         Ngày
-                      </p>
+                      </li>
                       <i className="fa-solid fa-caret-down text-[#FF7506]"></i>
                     </div>
 
-                    <div className="opacity-0 z-10 absolute bg-white  w-[106px] shadow-lg flex flex-col group-hover:opacity-100 group-hover:visible group-hover:mt-0">
+                    <div className="invisible opacity-0 absolute z-10 bg-white  w-[106px] shadow-lg group-hover:opacity-100 group-hover:visible group-hover:mt-0">
                       <div className=" w-full h-[1px] bg-[#F6F6F6] rounded-t-[10px]"></div>
 
-                      <div className="flex flex-col items-center w-full   rounded-b-[10px]">
+                      <div className="flex flex-col items-center w-full  rounded-b-[10px]">
                         {/* Thông báo 1 */}
-                        <div className="w-full flex-none order-0 flex-grow-0 ">
-                          <div className="px-3 pt-2 h-[44px] flex text-base font-bold text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
+                        <div className="w-full ">
+                          <div className="px-3 py-2  flex text-base font-bold text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
                             Ngày
                           </div>
                         </div>
 
                         {/* Thông báo 2 */}
-                        <div className="w-full flex-none order-0 flex-grow-0 ">
-                          <div className="px-3 pt-2 h-[44px] flex text-base font-bold text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
+                        <div className="w-full  ">
+                          <div className="px-3 py-2  flex text-base font-bold text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
                             Tuần
                           </div>
                         </div>
 
                         {/* Thông báo 3 */}
-                        <div className="w-full flex-none order-0 flex-grow-0 ">
-                          <div className="px-3 pt-2 h-[44px] flex text-base font-bold text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
+                        <div className="w-full  ">
+                          <div className="px-3 py-2  flex text-base font-bold text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
                             Tháng
                           </div>
                         </div>
@@ -305,34 +336,14 @@ const DashBoard = () => {
               </div>
               {/* Biểu đồ */}
               {/* bg-sky-300 */}
-              <div className="h-[373px]  ">Ngày</div>
+              <div className="h-[373px]">
+                <Recharts />
+              </div>
             </div>
           </div>
         </div>
         {/* Tổng quan  */}
-        <div className="absolute w-[400px] h-[88px] left-[1039px] flex px-6 flex-col">
-          <div className="absolute right-[260px] left-[230px] top-[28px] flex gap-6 items-center justify-center">
-            <NotiUser />
-            <div className="flex gap-2 w-[172px] h-[42px]">
-              <div className="w-10 h-10 shrink-0">
-                <img
-                  className="w-10 h-10 rounded-full object-cover"
-                  src={avatarTest}
-                  alt=""
-                />
-              </div>
-              <div>
-                <div className="flex flex-col w-[172px]">
-                  <p className="font-normal text-[12px] text-[#7E7D88] max-w-max w-full">
-                    Xin chào
-                  </p>
-                  <p className="font-bold text-base text-[#535261] max-w-max w-full">
-                    Lê Quỳnh Ái Vân
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className=" w-[400px] h-[88px]  flex px-6 flex-col">
           <div className="w-[170px] h-[36px] font-bold text-[24px] text-[#FF7506] mt-[104px] mb-4">
             <span>Tổng quan</span>
           </div>
@@ -636,8 +647,11 @@ const DashBoard = () => {
           </div>
           {/* Date picker*/}
           <div className=" flex flex-col items-center justify-center w-[353px] h-[336px] bg-white rounded-xl shadow-md">
-            <div className="w-[294px] h-[304px] flex-none order-0 flex-grow-0 overflow-hidden my-4 mx-7">
-              <DatePicker />
+            <div className="w-[294px] h-[304px]  overflow-hidden my-4 mx-7">
+              {/* <RainbowDatePicker /> */}
+              {/* <CalendarFromTo /> */}
+              {/* <DatePicker /> */}
+              <Calendar />
             </div>
           </div>
         </div>

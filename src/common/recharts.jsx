@@ -12,26 +12,21 @@ const Recharts = () => {
   const data = [
     {
       name: "05",
-
       sl: 4000,
       amt: 2400,
     },
     {
       name: "12",
-
       sl: 3000,
       amt: 2210,
     },
     {
       name: "18",
-
       sl: 2000,
-
       amt: 2290,
     },
     {
       name: "25",
-
       sl: 2780,
       amt: 2000,
     },

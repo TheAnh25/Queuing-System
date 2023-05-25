@@ -1,40 +1,29 @@
-import React from "react";
-import { DatePicker, Space } from "antd";
-const { RangePicker } = DatePicker;
+import * as React from "react";
+import dayjs from "dayjs";
+import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 
+import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 const CalendarFromTo = () => {
+  const [value, setValue] = React.useState([
+    dayjs("2022-04-17"),
+    dayjs("2022-04-21"),
+  ]);
   return (
     <>
-      <Space direction="vertical" size={12}>
-        <DatePicker
-          cellRender={(current) => {
-            const style = {};
-            if (current.date() === 1) {
-              style.border = "1px solid #1890ff";
-              style.borderRadius = "50%";
-            }
-            return (
-              <div className="ant-picker-cell-inner" style={style}>
-                {current.date()}
-              </div>
-            );
-          }}
-        />
-        <RangePicker
-          cellRender={(current) => {
-            const style = {};
-            if (current.date() === 1) {
-              style.border = "1px solid #1890ff";
-              style.borderRadius = "50%";
-            }
-            return (
-              <div className="ant-picker-cell-inner" style={style}>
-                {current.date()}
-              </div>
-            );
-          }}
-        />
-      </Space>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DemoContainer components={["DateRangePicker", "DateRangePicker"]}>
+          <DemoItem component="DateRangePicker" label="">
+            <DateRangePicker
+              className="text-[#FF7506]"
+              localeText={{ start: "", end: "" }}
+              value={value}
+              onChange={(newValue) => setValue(newValue)}
+            />
+          </DemoItem>
+        </DemoContainer>
+      </LocalizationProvider>
     </>
   );
 };

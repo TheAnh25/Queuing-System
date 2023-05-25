@@ -3,9 +3,14 @@ import avatarTest from "../../../assets/images/avatarTest.jpg";
 import NavbarDashboard from "../../../common/navbarDashboard";
 import NotiUser from "../../../common/notiUser";
 import { Link, useParams } from "react-router-dom";
+import dataDevice from "../../../data/dataDevice";
 
 const DetailDevice = () => {
   const param = useParams();
+  console.log("param");
+
+  console.log("param", param);
+
   return (
     <>
       <div className=" flex h-[810px]  bg-[#F7F7F7] rounded-2xl mx-auto">
@@ -76,96 +81,100 @@ const DetailDevice = () => {
                   <span className="text-[20px] font-bold text-[#FF7506] my-4">
                     Thông tin thiết bị
                   </span>
-                  {/* Chi tiết thông tin */}
-                  <div className="flex gap-6">
-                    {/* Thông tin thiết bị bên trái  */}
-                    <div className="flex flex-col gap-4 mb-4 max-w-[540px] w-full">
-                      <div className="flex gap-11 items-center">
-                        <span className="text-[#282739] text-base font-semibold">
-                          Mã thiết bị:
-                        </span>
-                        <span className="text-[#535261] text-base font-normal">
-                          KIO_01
-                        </span>
-                      </div>
-                      <div className="flex gap-11 items-center">
-                        <span className="text-[#282739] text-base font-semibold">
-                          Mã thiết bị:
-                        </span>
-                        <span className="text-[#535261] text-base font-normal">
-                          Kiosk
-                        </span>
-                      </div>{" "}
-                      <div className="flex gap-11 items-center">
-                        <span className="text-[#282739] text-base font-semibold">
-                          Mã thiết bị:
-                        </span>
-                        <span className="text-[#535261] text-base font-normal">
-                          128.172.308
-                        </span>
-                      </div>
-                    </div>
-                    {/* Thông tin thiết bị bên phải  */}
-                    <div className="flex flex-col gap-4 mb-4 max-w-[540px] w-full">
-                      <div className="flex gap-11 items-center">
-                        <span className="text-[#282739] text-base font-semibold">
-                          Mã thiết bị:
-                        </span>
-                        <span className="text-[#535261] text-base font-normal">
-                          Kiosk
-                        </span>
-                      </div>
-                      <div className="flex gap-11 items-center">
-                        <span className="text-[#282739] text-base font-semibold">
-                          Mã thiết bị:
-                        </span>
-                        <span className="text-[#535261] text-base font-normal">
-                          Linhkyo011
-                        </span>
-                      </div>{" "}
-                      <div className="flex gap-11 items-center">
-                        <span className="text-[#282739] text-base font-semibold">
-                          Mã thiết bị:
-                        </span>
-                        <span className="text-[#535261] text-base font-normal">
-                          CMS
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                  {param.id &&
+                    dataDevice
+                      .filter((item) => item.id.toString() === param.id)
+                      .map((item) => (
+                        <div>
+                          <div className="flex gap-6">
+                            {/* Thông tin thiết bị bên trái  */}
 
-                  <div className="flex flex-col gap-4 mb-[400px]">
-                    <div className="flex flex-col gap-2">
-                      <div className="flex gap-2 items-center">
-                        <span className="text-[#282739] text-base font-semibold">
-                          Dịch vụ sử dụng:
-                        </span>
-                      </div>
-                      <div>
-                        <p>
-                          Khám tim mạch, Khám sản - Phụ khoa, Khám răng hàm mặt,
-                          Khám tai mũi họng, Khám hô hấp, Khám tổng quát.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                            <div className="flex flex-col gap-4 mb-4 max-w-[540px] w-full">
+                              <div className="flex gap-11 items-center">
+                                <span className="text-[#282739] max-w-[90px] w-full text-base font-semibold">
+                                  Mã thiết bị:
+                                </span>
+                                <span className="text-[#535261] text-base font-normal">
+                                  {item.idDevice}
+                                </span>
+                              </div>
+                              <div className="flex gap-11 items-center">
+                                <span className="text-[#282739] max-w-[90px] w-full text-base font-semibold">
+                                  Tên thiết bị:
+                                </span>
+                                <span className="text-[#535261] text-base font-normal">
+                                  {item.nameDevice}
+                                </span>
+                              </div>{" "}
+                              <div className="flex gap-11 items-center">
+                                <span className="text-[#282739] max-w-[90px] w-full text-base font-semibold">
+                                  Địa chỉ IP:
+                                </span>
+                                <span className="text-[#535261] text-base font-normal">
+                                  {item.ipAddress}
+                                </span>
+                              </div>
+                            </div>
+                            {/* Thông tin thiết bị bên phải  */}
+                            <div className="flex flex-col gap-4 mb-4 max-w-[540px] w-full">
+                              <div className="flex gap-11 items-center">
+                                <span className="text-[#282739] max-w-[120px] w-full text-base font-semibold">
+                                  Loại thiết bị:
+                                </span>
+                                <span className="text-[#535261] text-base font-normal">
+                                  {item.categoryDevice}
+                                </span>
+                              </div>
+                              <div className="flex gap-11 items-center">
+                                <span className="text-[#282739] max-w-[120px] w-full text-base font-semibold">
+                                  Tên đăng nhập:
+                                </span>
+                                <span className="text-[#535261] text-base font-normal">
+                                  Linhkyo011
+                                </span>
+                              </div>{" "}
+                              <div className="flex gap-11 items-center">
+                                <span className="text-[#282739] max-w-[120px] w-full text-base font-semibold">
+                                  Mật khẩu:
+                                </span>
+                                <span className="text-[#535261] text-base font-normal">
+                                  CMS
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex flex-col gap-4 mb-[400px]">
+                            <div className="flex flex-col gap-2">
+                              <div className="flex gap-2 items-center">
+                                <span className="text-[#282739]  text-base font-semibold">
+                                  Dịch vụ sử dụng:
+                                </span>
+                              </div>
+                              <div>
+                                <p>{item.deviceUse}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                  {/* Chi tiết thông tin */}
                 </div>
               </div>
             </div>
-            <Link to="/">
-              <div className=" bg-[#FFF2E7]  max-h-[94px] w-full h-full">
-                <div className="flex flex-col h-full justify-center items-center px-3 pt-2 gap-1">
-                  <div className="w-[30px] h-[50px] flex justify-center rounded-lg items-center bg-[#FF9138]">
-                    <i className="fa-solid fa-pen text-white p-1"></i>
-                  </div>
-                  <Link to={`/device/updatedevice/${param.id}`}>
+            <div>
+              <Link to={`/device/updatedevice/${param.id}`}>
+                <div className=" bg-[#FFF2E7]  max-h-[94px] w-full h-full">
+                  <div className="flex flex-col h-full justify-center items-center px-3 pt-2 gap-1">
+                    <div className="w-[30px] h-[50px] flex justify-center rounded-lg items-center bg-[#FF9138]">
+                      <i className="fa-solid fa-pen text-white p-1"></i>
+                    </div>
                     <p className="text-[#FF7506] text-[16px] text-center pl-3 w-[90px] font-semibold h-full">
                       Cập nhật thiết bị
                     </p>
-                  </Link>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

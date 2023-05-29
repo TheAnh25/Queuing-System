@@ -13,6 +13,10 @@ import Service from "../pages/dashboard/services";
 import AddService from "../pages/dashboard/services/addService";
 import DetailService from "../pages/dashboard/services/detailService";
 import UpdateService from "../pages/dashboard/services/updateService";
+import Report from "../pages/dashboard/report";
+import NumberService from "../pages/dashboard/number";
+import NewNumber from "../pages/dashboard/number/newNumber";
+import DetailNumber from "../pages/dashboard/number/detailNumber";
 
 const Routers = () => {
   return (
@@ -30,6 +34,13 @@ const Routers = () => {
       <Route path="/service/addservice" element={<AddService />} />
       <Route path="/service/detailservice/:id" element={<DetailService />} />
       <Route path="/service/updateservice/:id" element={<UpdateService />} />
+      <Route path="/report" element={<Report />} />
+      <Route path="/numberservice" element={<NumberService />} />
+      <Route path="/numberservice/newnumber" element={<NewNumber />} />
+      <Route
+        path="/numberservice/detailnumber/:id"
+        element={<DetailNumber />}
+      />
       {/* <Route path="*" element={<Error404 />} /> */}
     </Routes>
   );

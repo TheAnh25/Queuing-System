@@ -257,10 +257,10 @@ const DetailService = () => {
                   </div>
                   {/* Nội dung thiết bị */}
                   <div className="max-w-full h-[490px] flex gap-4">
-                    <div className="max-w-[1112px] w-full h-full  shrink-0 flex">
+                    <div className="max-w-[1112px] w-full h-full shrink-0 flex">
                       <thead>
-                        <table className="shadow-lg w-full table-fixed tab">
-                          <tr className="text-[#FFFFFF] text-base font-bold bg-[#FF9138]">
+                        <table className="shadow-lg w-full table-fixed">
+                          <tr className="text-[#FFFFFF] text-base font-bold bg-[#FF9138] ">
                             <th className="border-r-[1px] border-r-solid border-r-white py-3">
                               Số thứ tự
                             </th>
@@ -274,7 +274,7 @@ const DetailService = () => {
                                 <tr
                                   key={val.id}
                                   className="text[#535261] text-[14px] font-normal ">
-                                  <td className="text-center py-3 border-r-[1px] border-r-solid border-r-[#FFE3CD]">
+                                  <td className="pl-3  py-3 border-r-[1px] border-r-solid border-r-[#FFE3CD]">
                                     {val.idService}
                                   </td>
 

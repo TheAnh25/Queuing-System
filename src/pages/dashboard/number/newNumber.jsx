@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import avatarTest from "../../../assets/images/avatarTest.jpg";
 import NavbarDashboard from "../../../common/navbarDashboard";
 import NotiUser from "../../../common/notiUser";
@@ -7,6 +7,9 @@ import { Modal, Ripple, initTE } from "tw-elements";
 initTE({ Modal, Ripple });
 
 const NewNumber = () => {
+  useEffect(() => {
+    initTE({ Modal, Ripple });
+  }, []);
   return (
     <>
       <div className=" flex max-h-[810px] h-full bg-[#F7F7F7] rounded-2xl mx-auto">

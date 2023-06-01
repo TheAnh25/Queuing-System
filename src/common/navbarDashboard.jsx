@@ -352,76 +352,131 @@ const NavbarDashboard = () => {
 
             {/* Cài đặt hệ thống */}
 
-            <div className="flex gap-2 h-12 items-center  px-3 ">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M5.3665 1.66602H14.6248C17.5915 1.66602 18.3332 2.40768 18.3332 5.36602V10.641C18.3332 13.6077 17.5915 14.341 14.6332 14.341H5.3665C2.40817 14.3493 1.6665 13.6077 1.6665 10.6493V5.36602C1.6665 2.40768 2.40817 1.66602 5.3665 1.66602Z"
-                  stroke="#A9A9B0"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M10 14.3496V18.3329"
-                  stroke="#A9A9B0"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M1.6665 10.834H18.3332"
-                  stroke="#A9A9B0"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M6.25 18.334H13.75"
-                  stroke="#A9A9B0"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
+            <NavLink
+              style={({ isActive }) => {
+                return {
+                  backgroundColor: isActive ? "#FF7506" : "",
+                  width: isActive ? "200px" : "",
+                  height: isActive ? "48px" : "",
+                  color: isActive ? "#FFFFFF" : "#7E7D88",
+                  display: isActive ? "inline-block" : "",
+                };
+              }}
+              to="/setting/managerole">
+              <div className="relative group">
+                <div className="flex gap-2 h-12 items-center px-3 ">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M5.3665 1.66602H14.6248C17.5915 1.66602 18.3332 2.40768 18.3332 5.36602V10.641C18.3332 13.6077 17.5915 14.341 14.6332 14.341H5.3665C2.40817 14.3493 1.6665 13.6077 1.6665 10.6493V5.36602C1.6665 2.40768 2.40817 1.66602 5.3665 1.66602Z"
+                      stroke="#A9A9B0"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M10 14.3496V18.3329"
+                      stroke="#A9A9B0"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M1.6665 10.834H18.3332"
+                      stroke="#A9A9B0"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M6.25 18.334H13.75"
+                      stroke="#A9A9B0"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
 
-              <div className=" w-[125px] h-6 font-semibold text-base text-[#7E7D88]  ">
-                <span>Cài đặt hệ thống</span>
+                  <div className=" w-[125px] h-6 font-semibold text-base ">
+                    <span>Cài đặt hệ thống</span>
+                  </div>
+
+                  <svg
+                    width="16"
+                    height="20"
+                    viewBox="0 0 16 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M9.99984 16.6667C10.4601 16.6667 10.8332 16.2936 10.8332 15.8333C10.8332 15.3731 10.4601 15 9.99984 15C9.5396 15 9.1665 15.3731 9.1665 15.8333C9.1665 16.2936 9.5396 16.6667 9.99984 16.6667Z"
+                      fill="#A9A9B0"
+                      stroke="#A9A9B0"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M9.99984 10.8327C10.4601 10.8327 10.8332 10.4596 10.8332 9.99935C10.8332 9.53911 10.4601 9.16602 9.99984 9.16602C9.5396 9.16602 9.1665 9.53911 9.1665 9.99935C9.1665 10.4596 9.5396 10.8327 9.99984 10.8327Z"
+                      fill="#A9A9B0"
+                      stroke="#A9A9B0"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M9.99984 5.00065C10.4601 5.00065 10.8332 4.62755 10.8332 4.16732C10.8332 3.70708 10.4601 3.33398 9.99984 3.33398C9.5396 3.33398 9.1665 3.70708 9.1665 4.16732C9.1665 4.62755 9.5396 5.00065 9.99984 5.00065Z"
+                      fill="#A9A9B0"
+                      stroke="#A9A9B0"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+
+                <div className="invisible rounded-lg opacity-0 absolute  bg-white w-full shadow-lg group-hover:opacity-100 group-hover:visible group-hover:mt-0">
+                  <div className=" w-full h-[1px] bg-[#F6F6F6] rounded-t-[10px]"></div>
+
+                  <div className="flex flex-col items-center w-full rounded-b-[10px]">
+                    {/* Thông báo 1 */}
+                    <div className="w-full ">
+                      <NavLink
+                        style={({ isActive }) => {
+                          return {
+                            backgroundColor: isActive ? "#FF7506" : "",
+                            width: isActive ? "200px" : "",
+                            height: isActive ? "100%" : "",
+                            color: isActive ? "#FFFFFF" : "#7E7D88",
+                            display: isActive ? "inline-block" : "",
+                          };
+                        }}
+                        to="/setting/managerole">
+                        <div className="w-full ">
+                          <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#FFF2E7] hover:text-black">
+                            Quản lý vai trò
+                          </div>
+                        </div>
+                      </NavLink>
+                    </div>
+
+                    {/* Thông báo 2 */}
+                    <div className="w-full  ">
+                      <div className="px-3 py-2  flex text-base font-normal text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
+                        Quản lý tài khoản
+                      </div>
+                    </div>
+
+                    {/* Thông báo 3 */}
+                    <div className="w-full  ">
+                      <div className="px-3 py-2  flex text-base font-normal text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
+                        Nhật ký người dùng
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-
-              <svg
-                width="16"
-                height="20"
-                viewBox="0 0 16 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M9.99984 16.6667C10.4601 16.6667 10.8332 16.2936 10.8332 15.8333C10.8332 15.3731 10.4601 15 9.99984 15C9.5396 15 9.1665 15.3731 9.1665 15.8333C9.1665 16.2936 9.5396 16.6667 9.99984 16.6667Z"
-                  fill="#A9A9B0"
-                  stroke="#A9A9B0"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M9.99984 10.8327C10.4601 10.8327 10.8332 10.4596 10.8332 9.99935C10.8332 9.53911 10.4601 9.16602 9.99984 9.16602C9.5396 9.16602 9.1665 9.53911 9.1665 9.99935C9.1665 10.4596 9.5396 10.8327 9.99984 10.8327Z"
-                  fill="#A9A9B0"
-                  stroke="#A9A9B0"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M9.99984 5.00065C10.4601 5.00065 10.8332 4.62755 10.8332 4.16732C10.8332 3.70708 10.4601 3.33398 9.99984 3.33398C9.5396 3.33398 9.1665 3.70708 9.1665 4.16732C9.1665 4.62755 9.5396 5.00065 9.99984 5.00065Z"
-                  fill="#A9A9B0"
-                  stroke="#A9A9B0"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
+            </NavLink>
           </div>
           <div className="w-full flex justify-center">
             <NavLink to="/login">

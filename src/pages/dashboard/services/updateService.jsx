@@ -128,11 +128,13 @@ const UpdateService = () => {
                         <i className="fa-solid fa-asterisk text-[6px] text-[#FF4747]"></i>
                       </div>
                       <div className="">
-                        <input
-                          className="rounded-lg border-[1.5px] border-solid w-full border-[#D4D4D7] h-[133px] px-3 text-[#A9A9B0] outline-none text-base font-normal"
-                          type="text"
+                        <textarea
+                          name=""
                           placeholder="Mô tả dịch vụ"
-                        />
+                          className="rounded-lg border-[1.5px] border-solid pt-2 pl-4 w-full border-[#D4D4D7] h-[133px] px-3 text-[#A9A9B0] outline-none text-base font-normal"
+                          id=""
+                          cols="30"
+                          rows="10"></textarea>
                       </div>
                     </div>
                   </div>

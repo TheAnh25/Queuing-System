@@ -18,10 +18,12 @@ import NumberService from "../pages/dashboard/number";
 import NewNumber from "../pages/dashboard/number/newNumber";
 import DetailNumber from "../pages/dashboard/number/detailNumber";
 import ManageRole from "../pages/dashboard/setting/role";
-import ManageAccount from "../pages/dashboard/setting/manageAccount";
-import ManageUser from "../pages/dashboard/setting/manageUser";
+import ManageAccount from "../pages/dashboard/setting/Accounts/manageAccount";
+import ManageUser from "../pages/dashboard/setting/Users/manageUser";
 import AddRole from "../pages/dashboard/setting/role/addRole";
 import UpdateRole from "../pages/dashboard/setting/role/updateRole";
+import UpdateAccount from "../pages/dashboard/setting/Accounts/updateAccount";
+import AddAccount from "../pages/dashboard/setting/Accounts/addAccount";
 
 const Routers = () => {
   return (
@@ -53,6 +55,14 @@ const Routers = () => {
         element={<UpdateRole />}
       />
       <Route path="/setting/manageaccount" element={<ManageAccount />} />
+      <Route
+        path="/setting/manageaccount/addaccount"
+        element={<AddAccount />}
+      />
+      <Route
+        path="/setting/manageaccount/updateaccount/:id"
+        element={<UpdateAccount />}
+      />
       <Route path="/setting/manageuser" element={<ManageUser />} />
       {/* <Route path="*" element={<Error404 />} /> */}
     </Routes>

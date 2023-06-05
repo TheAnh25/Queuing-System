@@ -1,23 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import imageLogin from "../../assets/images/imageLogin.png";
 import logoAlta from "../../assets/images/logoAlta.png";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-hot-toast";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
 
-    if (username === "lequynhaivan01" && password === "123456") {
-      toast.success("Login success!");
-      navigate("/");
-    } else {
-      setErrorMessage("Sai mật khẩu hoặc tên đăng nhập");
-    }
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+
+        navigate("/");
+      })
+      .catch((error) => {});
   };
 
   return (
@@ -29,17 +33,18 @@ const Login = () => {
           </div>
           <div className="absolute left-[94px] top-[293px]">
             <form onSubmit={handleLogin}>
+              {/* <form> */}
               <div>
                 <span className="block w-[133px] h-[27px] font-normal text-lg text-[#37474F] flex-none order-none flex-grow mb-2">
                   Tên đăng nhập *
                 </span>
                 <input
                   className="w-[400px] h-[44px] mt-1 mb-4 input-login"
-                  type="text"
-                  placeholder="username"
-                  id="username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  type="email"
+                  placeholder="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div>

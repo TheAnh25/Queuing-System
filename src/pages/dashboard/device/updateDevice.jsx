@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import avatarTest from "../../../assets/images/avatarTest.jpg";
 import NavbarDashboard from "../../../common/navbarDashboard";
 import NotiUser from "../../../common/notiUser";
 import { Link } from "react-router-dom";
 
 const UpdateDevice = () => {
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const handleSelectChange = (event) => {
+    const options = Array.from(event.target.options)
+      .filter((option) => option.selected)
+      .map((option) => option.value);
+
+    setSelectedOptions(options);
+  };
+
   return (
     <>
       <div className=" flex h-[810px]  bg-[#F7F7F7] rounded-2xl mx-auto">
@@ -197,6 +207,20 @@ const UpdateDevice = () => {
                   </div>
                 </div>
                 <div className="flex flex-col gap-4">
+                  {/* <div>
+                    <select multiple="multiple" onChange={handleSelectChange}>
+                      <option value="Danh sách 01">Danh sách 01</option>
+                      <option value="Danh sách 02">Danh sách 02</option>
+                      <option value="Danh sách 03">Danh sách 03</option>
+                      <option value="Danh sách 04">Danh sách 04</option>
+                    </select>
+
+                    <textarea
+                      rows="4"
+                      cols="50"
+                      value={selectedOptions.join("\n")}
+                      readOnly></textarea>
+                  </div> */}
                   <div className="flex flex-col gap-2">
                     <div className="flex gap-2 items-center">
                       <span className="text-[#282739] text-base font-semibold">
@@ -239,14 +263,12 @@ const UpdateDevice = () => {
                           <div className=" w-full h-[1px] bg-[#F6F6F6] rounded-t-[10px]"></div>
 
                           <div className="flex flex-col items-center w-full  rounded-b-[10px]">
-                            {/* Thông báo 1 */}
                             <div className="w-full ">
                               <div className="px-3 py-2 flex text-base font-normal text-[#282739] hover:cursor-pointer hover:bg-[#FFF2E7]">
                                 Khám răng hàm mặt
                               </div>
                             </div>
 
-                            {/* Thông báo 2 */}
                             <div className="w-full  ">
                               <div className="px-3 py-2  flex text-base font-normal text-[#282739] hover:cursor-pointer hover:bg-[#FFF2E7]">
                                 Khám tai mũi họng
@@ -256,7 +278,6 @@ const UpdateDevice = () => {
                         </div>
                       </div>
                     </div>
-                    {/* Hiển thị dịch vụ  */}
                   </div>
                   <div className="flex gap-1 items-center mb-[80px]">
                     <i className="fa-solid fa-asterisk text-[6px] text-[#FF4747]"></i>

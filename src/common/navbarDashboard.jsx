@@ -461,17 +461,47 @@ const NavbarDashboard = () => {
                     </div>
 
                     {/* Thông báo 2 */}
-                    <div className="w-full  ">
-                      <div className="px-3 py-2  flex text-base font-normal text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
-                        Quản lý tài khoản
-                      </div>
+
+                    <div className="w-full ">
+                      <NavLink
+                        style={({ isActive }) => {
+                          return {
+                            backgroundColor: isActive ? "#FF7506" : "",
+                            width: isActive ? "200px" : "",
+                            height: isActive ? "100%" : "",
+                            color: isActive ? "#FFFFFF" : "#7E7D88",
+                            display: isActive ? "inline-block" : "",
+                          };
+                        }}
+                        to="/setting/manageaccount">
+                        <div className="w-full ">
+                          <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#FFF2E7] hover:text-black">
+                            Quản lý tài khoản
+                          </div>
+                        </div>
+                      </NavLink>
                     </div>
 
                     {/* Thông báo 3 */}
-                    <div className="w-full  ">
-                      <div className="px-3 py-2  flex text-base font-normal text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
-                        Nhật ký người dùng
-                      </div>
+
+                    <div className="w-full ">
+                      <NavLink
+                        style={({ isActive }) => {
+                          return {
+                            backgroundColor: isActive ? "#FF7506" : "",
+                            width: isActive ? "200px" : "",
+                            height: isActive ? "100%" : "",
+                            color: isActive ? "#FFFFFF" : "#7E7D88",
+                            display: isActive ? "inline-block" : "",
+                          };
+                        }}
+                        to="/setting/manageuser">
+                        <div className="w-full ">
+                          <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#FFF2E7] hover:text-black">
+                            Nhật ký người dùng
+                          </div>
+                        </div>
+                      </NavLink>
                     </div>
                   </div>
                 </div>

@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import avatarTest from "../../../assets/images/avatarTest.jpg";
-import data from "../../../data/dataDevice";
+// import data from "../../../data/dataDevice";
 import NavbarDashboard from "../../../common/navbarDashboard";
 import NotiUser from "../../../common/notiUser";
 import PaginationItem from "../../../common/pagination";
 import { Link } from "react-router-dom";
+import { auth } from "../../../firebase";
+import { DocumentData, QuerySnapshot, onSnapshot } from "firebase/firestore";
+import { dataDevice } from "../../../firebase";
 
 const Device = () => {
+  // useEffect(() => {
+  //   console.log("ddd", auth);
+  // }, []);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    onSnapshot(dataDevice, (snapshot) => {
+      setData(
+        snapshot.docs.map((doc) => {
+          return {
+            id: doc.id,
+            ...doc.data(),
+          };
+        })
+      );
+    });
+  }, []);
   return (
     <>
       <div className=" flex max-h-[810px] h-full bg-[#F7F7F7] rounded-2xl mx-auto">
@@ -201,10 +221,10 @@ const Device = () => {
                               {val.nameDevice}
                             </td>
                             <td className="text-center border-r-[1px] border-r-solid border-r-[#FFE3CD]">
-                              {val.ipAddress}
+                              {val.ipDevice}
                             </td>
 
-                            {val.activeStatus ? (
+                            {val.statusDevice ? (
                               <td className=" border-r-[1px] border-r-solid border-r-[#FFE3CD] ">
                                 <div className=" flex px-1 items-center gap-1">
                                   <i className="fa-solid fa-circle text-[6px]  text-[#34CD26]"></i>
@@ -220,7 +240,7 @@ const Device = () => {
                               </td>
                             )}
 
-                            {val.connectStatus ? (
+                            {val.connectDevice ? (
                               <td className=" border-r-[1px] border-r-solid border-r-[#FFE3CD] ">
                                 <div className=" flex px-1 items-center gap-1">
                                   <i className="fa-solid fa-circle text-[6px]  text-[#34CD26]"></i>
@@ -239,7 +259,7 @@ const Device = () => {
                             <td className="border-r-[1px] border-r-solid border-r-[#FFE3CD] px-4">
                               <tr className="flex flex-col">
                                 <td className="line-clamp-1 ">
-                                  {val.deviceUse}
+                                  {val.serviceDevice}
                                 </td>
                                 <td className="text-[#4277FF] underline">
                                   Xem thêm

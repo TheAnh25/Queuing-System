@@ -223,19 +223,6 @@ const AddDevice = () => {
                           </div>
                         </div>
                       </div>
-
-                      {/* <select className="w-full outline-none cursor-pointer border-[1.5px] border-solid border-[#D4D4D7] px-3 py-[10px] rounded-lg">
-                        <option
-                          className="px-3 py-10 flex text-base font-normal text-[#282739] hover:cursor-pointer hover:bg-[#FFF2E7]"
-                          value="Khám tim mạch">
-                          Kiosk
-                        </option>
-                        <option
-                          className="px-3 py-2 flex text-base font-normal text-[#282739] hover:cursor-pointer hover:bg-[#FFF2E7]"
-                          value="Khám sản - Phụ khoa">
-                          Display counter
-                        </option>
-                      </select> */}
                     </div>
                     <div className="flex flex-col gap-2">
                       <div className="flex gap-2 items-center">

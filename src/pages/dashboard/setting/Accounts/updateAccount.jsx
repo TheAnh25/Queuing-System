@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import avatarTest from "../../../../assets/images/avatarTest.jpg";
 import NavbarDashboard from "../../../../common/navbarDashboard";
 import NotiUser from "../../../../common/notiUser";
@@ -13,14 +13,29 @@ const UpdateAccount = () => {
   const [selectedStatus, setSelectedStatus] = useState([]);
   const [selectedRole, setSelectedRole] = useState([]);
   const [nameLogin, setNameLogin] = useState("");
+  const [username, setUsername] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
 
-  // const handleNameLoginChange = (e) => {
-  //   setNameLogin(e.target.value);
-  // };
+  const handleNameLoginChange = (e) => {};
 
-  const handleNameLoginChange = (e) => {
-    setNameLogin({ ...nameLogin, [e.target.name]: [e.target.value] });
-  };
+  useEffect(() => {
+    if (
+      param.id &&
+      dataAccount.filter((item) => item.id.toString() === param.id)
+    ) {
+      dataAccount
+        .filter((item) => item.id.toString() === param.id)
+        .map(
+          (item) => (
+            setNameLogin(item.nameLogin),
+            setUsername(item.username),
+            setPhone(item.phone),
+            setEmail(item.email)
+          )
+        );
+    }
+  }, []);
 
   const handleSelectRoleChange = (event) => {
     const options = Array.from(event.target.options)
@@ -126,7 +141,8 @@ const UpdateAccount = () => {
                               <input
                                 className="rounded-lg border-[1.5px] border-solid w-full border-[#D4D4D7] px-3 py-[10px] text-[#A9A9B0] outline-none text-base font-normal"
                                 type="text"
-                                placeholder={item.username}
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
                               />
                             </div>
                           </div>
@@ -141,7 +157,8 @@ const UpdateAccount = () => {
                               <input
                                 className="rounded-lg border-[1.5px] border-solid w-full border-[#D4D4D7] px-3 py-[10px] text-[#A9A9B0] outline-none text-base font-normal"
                                 type="text"
-                                placeholder={item.phone}
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
                               />
                             </div>
                           </div>
@@ -156,7 +173,8 @@ const UpdateAccount = () => {
                               <input
                                 className="rounded-lg border-[1.5px] border-solid w-full border-[#D4D4D7] px-3 py-[10px] text-[#A9A9B0] outline-none text-base font-normal"
                                 type="text"
-                                placeholder={item.email}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                               />
                             </div>
                           </div>
@@ -220,10 +238,9 @@ const UpdateAccount = () => {
                             <div>
                               <input
                                 className="rounded-lg border-[1.5px] border-solid w-full border-[#D4D4D7] px-3 py-[10px] text-[#A9A9B0] outline-none text-base font-normal"
-                                name="nameLogin"
                                 type="text"
-                                value={item.nameLogin}
-                                onChange={handleNameLoginChange}
+                                value={nameLogin}
+                                onChange={(e) => setNameLogin(e.target.value)}
                               />
                             </div>
                           </div>

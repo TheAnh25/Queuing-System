@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import avatarTest from "../../../../assets/images/avatarTest.jpg";
 import NavbarDashboard from "../../../../common/navbarDashboard";
@@ -9,7 +9,23 @@ import dataRoles from "../../../../data/dataRole";
 
 const UpdateRole = () => {
   const param = useParams();
+  const [nameRole, setNameRole] = useState("");
+  const [description, setDescription] = useState("");
 
+  useEffect(() => {
+    if (
+      param.id &&
+      dataRoles.filter((item) => item.id.toString() === param.id)
+    ) {
+      dataRoles
+        .filter((item) => item.id.toString() === param.id)
+        .map(
+          (item) => (
+            setNameRole(item.nameRole), setDescription(item.description)
+          )
+        );
+    }
+  }, []);
   return (
     <>
       <div className=" flex h-[810px]  bg-[#F7F7F7] rounded-2xl mx-auto">
@@ -98,7 +114,8 @@ const UpdateRole = () => {
                               <input
                                 className="rounded-lg border-[1.5px] border-solid w-full border-[#D4D4D7] px-3 py-[10px] text-[#A9A9B0] outline-none text-base font-normal"
                                 type="text"
-                                placeholder={item.nameRole}
+                                value={nameRole}
+                                onChange={(e) => setNameRole(e.target.value)}
                               />
                             </div>
                           </div>
@@ -114,7 +131,10 @@ const UpdateRole = () => {
                               <div className="">
                                 <textarea
                                   name=""
-                                  placeholder={item.description}
+                                  value={description}
+                                  onChange={(e) =>
+                                    setDescription(e.target.value)
+                                  }
                                   className="rounded-lg border-[1.5px] border-solid pt-2 pl-4 w-full border-[#D4D4D7] h-[133px] px-3 text-[#A9A9B0] outline-none text-base font-normal"
                                   id=""
                                   cols="30"

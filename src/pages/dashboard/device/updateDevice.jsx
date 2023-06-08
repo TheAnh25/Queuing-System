@@ -207,20 +207,6 @@ const UpdateDevice = () => {
                   </div>
                 </div>
                 <div className="flex flex-col gap-4">
-                  {/* <div>
-                    <select multiple="multiple" onChange={handleSelectChange}>
-                      <option value="Danh sách 01">Danh sách 01</option>
-                      <option value="Danh sách 02">Danh sách 02</option>
-                      <option value="Danh sách 03">Danh sách 03</option>
-                      <option value="Danh sách 04">Danh sách 04</option>
-                    </select>
-
-                    <textarea
-                      rows="4"
-                      cols="50"
-                      value={selectedOptions.join("\n")}
-                      readOnly></textarea>
-                  </div> */}
                   <div className="flex flex-col gap-2">
                     <div className="flex gap-2 items-center">
                       <span className="text-[#282739] text-base font-semibold">

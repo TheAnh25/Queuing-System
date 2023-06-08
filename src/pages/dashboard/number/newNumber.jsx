@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import avatarTest from "../../../assets/images/avatarTest.jpg";
 import NavbarDashboard from "../../../common/navbarDashboard";
 import NotiUser from "../../../common/notiUser";
@@ -10,6 +10,16 @@ const NewNumber = () => {
   useEffect(() => {
     initTE({ Modal, Ripple });
   }, []);
+
+  const [selectedNumber, setSelectedNumber] = useState([]);
+
+  const handleSelectNumber = (event) => {
+    const options = Array.from(event.target.options)
+      .filter((option) => option.selected)
+      .map((option) => option.value);
+
+    setSelectedNumber(options);
+  };
   return (
     <>
       <div className=" flex max-h-[810px] h-full bg-[#F7F7F7] rounded-2xl mx-auto">
@@ -82,7 +92,7 @@ const NewNumber = () => {
                   Dịch vụ khách hàng lựa chọn
                 </span>
                 <div className="max-w-[400px] w-full mb-[80px]">
-                  <div className="relative group">
+                  {/* <div className="relative group">
                     <div className="flex justify-between cursor-pointer items-center px-3 py-[10px] bg-[#FFFFFF] border-[1.5px] border-solid border-[#D4D4D7] rounded-lg ">
                       <li className=" text-base cursor-pointer font-normal text-[#A9A9B0] list-none">
                         Chọn dịch vụ
@@ -94,31 +104,86 @@ const NewNumber = () => {
                       <div className=" w-full h-[1px] bg-[#F6F6F6] rounded-t-[10px]"></div>
 
                       <div className="flex flex-col items-center w-full  rounded-b-[10px]">
-                        {/* Thông báo 1 */}
+                        
                         <div className="w-full ">
                           <div className="px-3 py-2  flex text-[14px] font-normal text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
                             Khám tim mạch
                           </div>
                         </div>
 
-                        {/* Thông báo 2 */}
+           
                         <div className="w-full  ">
                           <div className="px-3 py-2  flex text-[14px] font-normal text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
                             Khám sản - Phụ khoa
                           </div>
                         </div>
 
-                        {/* Thông báo 3 */}
+                     
                         <div className="w-full  ">
                           <div className="px-3 py-2  flex text-[14px] font-normal text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
                             Khám răng hàm mặt
                           </div>
                         </div>
-                        {/* Thông báo 4 */}
+               
                         <div className="w-full  ">
                           <div className="px-3 py-2  flex text-[14px] font-normal text-[#535261] hover:cursor-pointer hover:bg-[#FFF2E7]">
                             Khám tai mũi họng
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> */}
+                  <div className="flex flex-col gap-2 ">
+                    {/* <div className="flex justify-between cursor-pointer items-center px-3 py-[10px] bg-[#FFFFFF] border-[1.5px] border-solid border-[#D4D4D7] rounded-lg ">
+                      <li className=" text-base cursor-pointer font-normal text-[#A9A9B0] list-none">
+                        Chọn dịch vụ
+                      </li>
+                      <i className="fa-solid fa-caret-down text-[#FF7506]"></i>
+                    </div> */}
+                    <div className="relative group">
+                      <textarea
+                        className={
+                          selectedNumber !== ""
+                            ? "border-[1.5px] rounded-lg border-solid w-full border-[#D4D4D7] px-3 py-[10px] text-[#A9A9B0] outline-none text-base font-normal gap-3 flex justify-center items-center text-[14px]"
+                            : ""
+                        }
+                        name=""
+                        id=""
+                        cols="30"
+                        rows="1"
+                        placeholder="Nhập dịch vụ sử dụng"
+                        value={selectedNumber.join()}
+                        onChange={(e) =>
+                          setSelectedNumber(e.target.value)
+                        }></textarea>
+
+                      <div className="invisible opacity-0 absolute bg-white w-full shadow-lg group-hover:opacity-100 group-hover:visible group-hover:mt-0">
+                        <div className="flex flex-col items-center w-full rounded-b-[10px]">
+                          <select
+                            className="w-full outline-none max-h-[150px] h-full rounded-lg"
+                            multiple="multiple"
+                            onChange={handleSelectNumber}>
+                            <option
+                              className="px-3 py-2 flex text-base font-normal text-[#282739] hover:cursor-pointer hover:bg-[#FFF2E7]"
+                              value="Khám tim mạch">
+                              Khám tim mạch
+                            </option>
+                            <option
+                              className="px-3 py-2 flex text-base font-normal text-[#282739] hover:cursor-pointer hover:bg-[#FFF2E7]"
+                              value=" Khám sản - Phụ khoa">
+                              Khám sản - Phụ khoa
+                            </option>
+                            <option
+                              className="px-3 py-2 flex text-base font-normal text-[#282739] hover:cursor-pointer hover:bg-[#FFF2E7]"
+                              value="   Khám răng hàm mặt">
+                              Khám răng hàm mặt
+                            </option>
+                            <option
+                              className="px-3 py-2 flex text-base font-normal text-[#282739] hover:cursor-pointer hover:bg-[#FFF2E7]"
+                              value="  Khám tai mũi họng">
+                              Khám tai mũi họng
+                            </option>
+                          </select>
                         </div>
                       </div>
                     </div>

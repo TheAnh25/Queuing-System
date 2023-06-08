@@ -10,9 +10,17 @@ import dataAccount from "../../../../data/dataAccount";
 const UpdateAccount = () => {
   const param = useParams();
 
-  const [selectedOptions, setSelectedOptions] = useState([]);
   const [selectedStatus, setSelectedStatus] = useState([]);
   const [selectedRole, setSelectedRole] = useState([]);
+  const [nameLogin, setNameLogin] = useState("");
+
+  // const handleNameLoginChange = (e) => {
+  //   setNameLogin(e.target.value);
+  // };
+
+  const handleNameLoginChange = (e) => {
+    setNameLogin({ ...nameLogin, [e.target.name]: [e.target.value] });
+  };
 
   const handleSelectRoleChange = (event) => {
     const options = Array.from(event.target.options)
@@ -197,19 +205,6 @@ const UpdateAccount = () => {
                                 </div>
                               </div>
                             </div>
-
-                            {/* <select className="w-full outline-none cursor-pointer border-[1.5px] border-solid border-[#D4D4D7] px-3 py-[10px] rounded-lg">
-                          <option
-                            className="px-3 py-10 flex text-base font-normal text-[#282739] hover:cursor-pointer hover:bg-[#FFF2E7]"
-                            value="Khám tim mạch">
-                            Kiosk
-                          </option>
-                          <option
-                            className="px-3 py-2 flex text-base font-normal text-[#282739] hover:cursor-pointer hover:bg-[#FFF2E7]"
-                            value="Khám sản - Phụ khoa">
-                            Display counter
-                          </option>
-                        </select> */}
                           </div>
                         </div>
                         {/* Thông tin thiết bị bên phải  */}
@@ -225,8 +220,10 @@ const UpdateAccount = () => {
                             <div>
                               <input
                                 className="rounded-lg border-[1.5px] border-solid w-full border-[#D4D4D7] px-3 py-[10px] text-[#A9A9B0] outline-none text-base font-normal"
+                                name="nameLogin"
                                 type="text"
-                                placeholder={item.nameLogin}
+                                value={item.nameLogin}
+                                onChange={handleNameLoginChange}
                               />
                             </div>
                           </div>
